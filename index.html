@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="hero_content">
+        <div class="header">
+          <img src="./images/logo.svg" alt="logo">
+        </div>
+        <div class="content">
+          <div class="title">
+            <span>We're</span> <br>
+            coming <br>
+            soon <br>
+          </div>
+          <div class="description">
+            Hello fellow shoppers! We're currently building our
+            new fashion store. Add your email below to stay up-to-date with
+            announcements and our launch deals.
+          </div>
+         <div class="inputs">
+          <form action="#">
+            <div class="error_icon">
+              <img src="./images/icon-error.svg" alt="icon-error">
+            </div>
+            <input type="email" name="email" id="email" placeholder="Email Address">
+            <p class="error_msg">
+              please provide a valid email
+            </p>
+            <button class="submt_btn">
+              <img src="./images/icon-arrow.svg" alt="icon-arrow">
+            </button>
+          </form>
+         </div>
+        </div>
+      </div>
+      <div class="hero_image">
+        <picture>
+          <source media="(min-width:850px)" srcset="./images/hero-desktop.jpg">
+          <img src="./images/hero-mobile.jpg" alt="hero-desktop">
+        </picture>
+      </div>
+    </div>
+    <!-- 
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer> -->
+
+  <script>
+    const sbmtBtn = document.querySelector('.submt_btn');
+
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+  
+    sbmtBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      let email = document.getElementById('email');
+      let errorMsg = document.querySelector('.error_msg');
+      let errorIcon = document.querySelector('.error_icon');
+      
+      if (regex.test(email.value) == false || email.value == '') 
+      {
+        errorMsg.classList.add('show');
+        errorIcon.classList.add('show');
+        email.style.border = "2px solid hsl(0, 93%, 68%)";
+        email.placeholder = ' ';
+      }
+      else
+      {
+        errorMsg.classList.remove('show');
+        errorIcon.classList.remove('show');
+        email.style.border = "1px solid hsla(0, 6%, 24%,0.25)";
+        email.placeholder = 'Email Address';
+      }
+    })
+  </script>
+  </body>
+</html>
